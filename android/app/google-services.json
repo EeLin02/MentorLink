@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "68754043829",
+    "project_id": "mentor-link-58f80",
+    "storage_bucket": "mentor-link-58f80.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68754043829:android:b9e6747a6756284bcb9ffc",
+        "android_client_info": {
+          "package_name": "com.example.mentorlink"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA6XFjW8neb-tW0bJn1q4RDhcpBadkt_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
