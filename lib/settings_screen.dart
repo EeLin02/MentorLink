@@ -6,6 +6,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'theme_notifier.dart';
 
 class SettingsScreen extends StatefulWidget {
+  const SettingsScreen({super.key});
+
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
 }

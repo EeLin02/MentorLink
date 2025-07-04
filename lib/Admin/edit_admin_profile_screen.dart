@@ -13,10 +13,10 @@ class AdminEditProfileScreen extends StatefulWidget {
   final String email;
 
   const AdminEditProfileScreen({
-    Key? key,
+    super.key,
     required this.name,
     required this.email,
-  }) : super(key: key);
+  });
 
   @override
   _AdminEditProfileScreenState createState() => _AdminEditProfileScreenState(
@@ -64,7 +64,7 @@ class _AdminEditProfileScreenState extends State<AdminEditProfileScreen> {
           emailController.text = user.email ?? '';
           number = parsedNumber;
           phoneController.text = parsedNumber.phoneNumber ?? '';
-          selectedGender = data['gender'] ?? null;
+          selectedGender = data['gender'];
           profileUrl = data['profileUrl'] ?? '';
           if (data['birthDate'] != null) {
             selectedBirthDate = (data['birthDate'] as Timestamp).toDate();
@@ -470,11 +470,11 @@ class _AdminEditProfileScreenState extends State<AdminEditProfileScreen> {
                       SizedBox(height: 8),
                       ElevatedButton(
                         onPressed: _updateEmail,
-                        child: Text('Update Email'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.deepPurple,
                           foregroundColor: Colors.white,
                         ),
+                        child: Text('Update Email'),
                       ),
                     ],
                   ),
@@ -509,7 +509,6 @@ class _AdminEditProfileScreenState extends State<AdminEditProfileScreen> {
                   SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: _saveProfile,
-                    child: Text("Save Profile"),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepPurple[100],
                       foregroundColor: Colors.deepPurple,
@@ -520,11 +519,11 @@ class _AdminEditProfileScreenState extends State<AdminEditProfileScreen> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
+                    child: Text("Save Profile"),
                   ),
                   SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: _showChangePasswordDialog,
-                    child: Text("Change Password"),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepPurple,
                       foregroundColor: Colors.white,
@@ -535,11 +534,11 @@ class _AdminEditProfileScreenState extends State<AdminEditProfileScreen> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
+                    child: Text("Change Password"),
                   ),
                   SizedBox(height: 10),
                   ElevatedButton(
                     onPressed: _showCancelConfirmationDialog,
-                    child: Text("Cancel"),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       foregroundColor: Colors.deepPurple,
@@ -551,6 +550,7 @@ class _AdminEditProfileScreenState extends State<AdminEditProfileScreen> {
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),
+                    child: Text("Cancel"),
                   ),
                 ],
               ),

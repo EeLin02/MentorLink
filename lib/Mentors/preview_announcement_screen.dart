@@ -18,11 +18,11 @@ class PreviewAnnouncementScreen extends StatefulWidget {
 
 
   const PreviewAnnouncementScreen({
-    Key? key,
+    super.key,
     required this.data,
     required this.color,
 
-  }) : super(key: key);
+  });
 
   @override
   State<PreviewAnnouncementScreen> createState() =>
@@ -97,14 +97,13 @@ class _ModernAnnouncementCard extends StatelessWidget {
   final dynamic postedTimestamp; // Dynamic type to handle different formats of timestamps
 
   const _ModernAnnouncementCard({
-    Key? key,
     required this.title,
     required this.description,
     required this.mentorDetailsFuture,
     required this.files,
     required this.postedTimestamp,
     this.externalLinks = const [],
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -267,14 +266,17 @@ class _ModernAnnouncementCard extends StatelessWidget {
   }
 
   Widget _buildFilesSection(BuildContext context, ThemeData theme) {
-    Icon _getFileIcon(String fileName) {
+    Icon getFileIcon(String fileName) {
       final ext = fileName.toLowerCase();
-      if (ext.endsWith('.pdf'))
+      if (ext.endsWith('.pdf')) {
         return Icon(Icons.picture_as_pdf, color: Colors.red);
-      if (ext.endsWith('.doc') || ext.endsWith('.docx'))
+      }
+      if (ext.endsWith('.doc') || ext.endsWith('.docx')) {
         return Icon(Icons.description, color: Colors.blueAccent);
-      if (ext.endsWith('.jpg') || ext.endsWith('.jpeg') || ext.endsWith('.png'))
+      }
+      if (ext.endsWith('.jpg') || ext.endsWith('.jpeg') || ext.endsWith('.png')) {
         return Icon(Icons.image, color: Colors.green);
+      }
       return Icon(Icons.attach_file, color: Colors.teal); // Default
     }
 
@@ -298,7 +300,7 @@ class _ModernAnnouncementCard extends StatelessWidget {
               .first;
 
           return ListTile(
-            leading: _getFileIcon(fileName),
+            leading: getFileIcon(fileName),
             title: Text(fileName),
               onTap: () {
                 final isPdf = fileName.toLowerCase().endsWith('.pdf');
@@ -322,7 +324,7 @@ class _ModernAnnouncementCard extends StatelessWidget {
               }
 
           );
-        }).toList(),
+        }),
       ],
     );
   }
@@ -332,7 +334,7 @@ class _ModernAnnouncementCard extends StatelessWidget {
 class FilePreviewScreen extends StatefulWidget {
   final String fileUrl;
 
-  const FilePreviewScreen({Key? key, required this.fileUrl}) : super(key: key);
+  const FilePreviewScreen({super.key, required this.fileUrl});
 
   @override
   State<FilePreviewScreen> createState() => _FilePreviewScreenState();

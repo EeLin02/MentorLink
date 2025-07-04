@@ -4,6 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'edit_account_screen.dart';
 
 class ManageAccountsScreen extends StatefulWidget {
+  const ManageAccountsScreen({super.key});
+
   @override
   _ManageAccountsScreenState createState() => _ManageAccountsScreenState();
 }

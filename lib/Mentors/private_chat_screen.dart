@@ -19,11 +19,11 @@ class PrivateChatScreen extends StatefulWidget {
   final String mentorId;
 
   const PrivateChatScreen({
-    Key? key,
+    super.key,
     required this.studentId,
     required this.studentName,
     required this.mentorId,
-  }) : super(key: key);
+  });
 
   @override
   State<PrivateChatScreen> createState() => _PrivateChatScreenState();

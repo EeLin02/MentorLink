@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 
 class ManageMentorsScreen extends StatefulWidget {
+  const ManageMentorsScreen({super.key});
+
   @override
   _ManageMentorsScreenState createState() => _ManageMentorsScreenState();
 }
@@ -116,7 +118,7 @@ class _ManageMentorsScreenState extends State<ManageMentorsScreen> {
         return StatefulBuilder(builder: (context, setStateDialog) {
           return AlertDialog(
             title: Text('Edit Mentor Departments'),
-            content: Container(
+            content: SizedBox(
               width: double.maxFinite,
               child: ListView(
                 shrinkWrap: true,
@@ -183,7 +185,7 @@ class _ManageMentorsScreenState extends State<ManageMentorsScreen> {
         Set<String> tempSelected = Set.from(selectedDepartmentIdsForAssign);
         return AlertDialog(
           title: Text("Select Departments"),
-          content: Container(
+          content: SizedBox(
             width: double.maxFinite,
             child: ListView(
               shrinkWrap: true,

@@ -9,14 +9,14 @@ class SubjectClassDetailsScreen extends StatelessWidget {
   final String mentorId;
 
   const SubjectClassDetailsScreen({
-    Key? key,
+    super.key,
     required this.subjectName,
     required this.className,
     required this.color,
     required this.subjectId,
     required this.classId,
     required this.mentorId,
-  }) : super(key: key);
+  });
 
 
   @override

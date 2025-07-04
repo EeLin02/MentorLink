@@ -7,7 +7,7 @@ class EditGroupEnrollmentScreen extends StatefulWidget {
   final String subjectId;
   final String classId;
 
-  const EditGroupEnrollmentScreen({
+  const EditGroupEnrollmentScreen({super.key, 
     required this.firestore,
     required this.departmentId,
     required this.subjectId,
@@ -170,7 +170,7 @@ class _EditGroupEnrollmentScreenState extends State<EditGroupEnrollmentScreen> {
                     });
                   },
                 );
-              }).toList(),
+              }),
               SizedBox(height: 24),
               ElevatedButton(
                 onPressed: _saveChanges,

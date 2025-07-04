@@ -7,11 +7,11 @@ class EditAssignmentScreen extends StatefulWidget {
   final Map<String, dynamic> currentData;
 
   const EditAssignmentScreen({
-    Key? key,
+    super.key,
     required this.firestore,
     required this.assignmentId,
     required this.currentData,
-  }) : super(key: key);
+  });
 
   @override
   _EditAssignmentScreenState createState() => _EditAssignmentScreenState();
@@ -161,8 +161,11 @@ class _EditAssignmentScreenState extends State<EditAssignmentScreen> {
                         value: isSelected,
                         onChanged: (val) {
                           setState(() {
-                            if (val == true) selectedClassIds.add(d.id);
-                            else selectedClassIds.remove(d.id);
+                            if (val == true) {
+                              selectedClassIds.add(d.id);
+                            } else {
+                              selectedClassIds.remove(d.id);
+                            }
                           });
                         },
                       );

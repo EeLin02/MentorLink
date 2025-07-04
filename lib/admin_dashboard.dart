@@ -12,6 +12,8 @@ import 'settings_screen.dart';
 import 'login.dart';
 
 class AdminDashboard extends StatefulWidget {
+  const AdminDashboard({super.key});
+
   @override
   _AdminDashboardState createState() => _AdminDashboardState();
 }

@@ -4,6 +4,8 @@ import 'edit_mentor_assignment_screen.dart';
 import 'edit_student_assignment_screen.dart';
 
 class ManageStudentsAndMentorsScreen extends StatefulWidget {
+  const ManageStudentsAndMentorsScreen({super.key});
+
   @override
   _ManageStudentsAndMentorsScreenState createState() => _ManageStudentsAndMentorsScreenState();
 }
@@ -51,7 +53,7 @@ class _ManageStudentsAndMentorsScreenState extends State<ManageStudentsAndMentor
 class MentorAssignmentPage extends StatefulWidget {
   final FirebaseFirestore firestore;
 
-  const MentorAssignmentPage({Key? key, required this.firestore}) : super(key: key);
+  const MentorAssignmentPage({super.key, required this.firestore});
 
   @override
   _MentorAssignmentPageState createState() => _MentorAssignmentPageState();
@@ -390,7 +392,7 @@ class _MentorAssignmentPageState extends State<MentorAssignmentPage> {
 
 class StudentEnrollmentPage extends StatefulWidget {
   final FirebaseFirestore firestore;
-  const StudentEnrollmentPage({required this.firestore});
+  const StudentEnrollmentPage({super.key, required this.firestore});
 
   @override
   _StudentEnrollmentPageState createState() => _StudentEnrollmentPageState();
@@ -637,11 +639,12 @@ class _StudentEnrollmentPageState extends State<StudentEnrollmentPage> {
                 if (!snapshot.hasData) return Center(child: CircularProgressIndicator());
                 final docs = snapshot.data!.docs;
 
-                if (docs.isEmpty)
+                if (docs.isEmpty) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text('No existing student enrollments found.'),
                   );
+                }
 
                 return Column(
                   children: docs.map((doc) {
@@ -711,7 +714,9 @@ class _StudentEnrollmentPageState extends State<StudentEnrollmentPage> {
   void saveEnrollment() async {
     if (selectedDepartmentId == null ||
         selectedSubjectId == null ||
-        selectedClassId == null) return;
+        selectedClassId == null) {
+      return;
+    }
 
     final batch = widget.firestore.batch();
     for (var studentId in selectedStudentIds) {

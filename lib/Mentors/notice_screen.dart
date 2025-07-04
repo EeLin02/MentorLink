@@ -7,6 +7,8 @@ import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 
 class NoticeScreen extends StatelessWidget {
+  const NoticeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +64,7 @@ class NoticeScreen extends StatelessWidget {
                             (data['fileUrls'] as List).length,
                                 (i) => Padding(
                               padding: const EdgeInsets.symmetric(vertical: 6),
-                              child: Container(
+                              child: SizedBox(
                                 width: double.infinity,
                                 height: 200,
                                 child: ClipRRect(
@@ -175,7 +177,7 @@ class NoticeScreen extends StatelessWidget {
 class FullscreenImageView extends StatelessWidget {
   final String imageUrl;
 
-  const FullscreenImageView({Key? key, required this.imageUrl}) : super(key: key);
+  const FullscreenImageView({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -199,7 +201,7 @@ class FullscreenImageView extends StatelessWidget {
 class LatestCommentsWidget extends StatefulWidget {
   final String noticeId;
 
-  const LatestCommentsWidget({Key? key, required this.noticeId}) : super(key: key);
+  const LatestCommentsWidget({super.key, required this.noticeId});
 
   @override
   State<LatestCommentsWidget> createState() => _LatestCommentsWidgetState();
@@ -338,7 +340,7 @@ class _LatestCommentsWidgetState extends State<LatestCommentsWidget> {
 class PdfViewerScreen extends StatelessWidget {
   final String pdfUrl;
 
-  const PdfViewerScreen({required this.pdfUrl, Key? key}) : super(key: key);
+  const PdfViewerScreen({required this.pdfUrl, super.key});
 
   @override
   Widget build(BuildContext context) {

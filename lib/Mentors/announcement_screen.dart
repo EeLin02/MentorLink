@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AnnouncementScreen extends StatefulWidget {
-  const AnnouncementScreen({Key? key}) : super(key: key);
+  const AnnouncementScreen({super.key});
 
   @override
   State<AnnouncementScreen> createState() => _AnnouncementScreenState();
@@ -178,8 +178,8 @@ class _AnnouncementScreenState extends State<AnnouncementScreen> {
             },
           );
         },
-        child: Icon(Icons.add),
         tooltip: 'Create new announcement',
+        child: Icon(Icons.add),
       ),
     );
   }

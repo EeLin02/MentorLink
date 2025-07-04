@@ -14,11 +14,11 @@ class EditMentorProfileScreen extends StatefulWidget {
   final String profileUrl;
 
   const EditMentorProfileScreen({
-    Key? key,
+    super.key,
     required this.mentorName,
     required this.email,
     required this.profileUrl,
-  }) : super(key: key);
+  });
 
   @override
   _EditMentorProfileScreenState createState() => _EditMentorProfileScreenState();
@@ -457,11 +457,11 @@ class _EditMentorProfileScreenState extends State<EditMentorProfileScreen> {
                       SizedBox(height: 8),
                       ElevatedButton(
                         onPressed: _updateEmail,
-                        child: Text('Update Email'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.teal,
                           foregroundColor: Colors.white,
                         ),
+                        child: Text('Update Email'),
                       ),
                     ],
                   ),

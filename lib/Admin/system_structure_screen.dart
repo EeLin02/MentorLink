@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'system structure/create_department.dart';
 import 'system structure/create_class.dart';
 import 'system structure/create_subject.dart';
@@ -8,6 +7,8 @@ import 'system structure/view_assign_roles.dart';
 
 
 class SystemStructureScreen extends StatefulWidget {
+  const SystemStructureScreen({super.key});
+
   @override
   _SystemStructureScreenState createState() => _SystemStructureScreenState();
 }

@@ -14,10 +14,10 @@ class PreviewResourceScreen extends StatefulWidget {
   final Color? color;
 
   const PreviewResourceScreen({
-    Key? key,
+    super.key,
     required this.data,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   State<PreviewResourceScreen> createState() => _PreviewResourceScreenState();
@@ -92,7 +92,6 @@ class _ModernResourceCard extends StatelessWidget {
   final String? className;
 
   const _ModernResourceCard({
-    Key? key,
     required this.title,
     required this.description,
     required this.mentorDetailsFuture,
@@ -101,7 +100,7 @@ class _ModernResourceCard extends StatelessWidget {
     required this.externalLinks,
     this.subjectName,
     this.className,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -182,7 +181,7 @@ class _ModernResourceCard extends StatelessWidget {
               ...files.map((fileUrl) {
                 final fileName = Uri.decodeFull(fileUrl.toString().split('/').last.split('?').first);
 
-                Icon _getIcon(String fileName) {
+                Icon getIcon(String fileName) {
                   if (fileName.endsWith('.pdf')) return const Icon(Icons.picture_as_pdf, color: Colors.red);
                   if (fileName.endsWith('.doc') || fileName.endsWith('.docx')) {
                     return const Icon(Icons.description, color: Colors.blue);
@@ -194,7 +193,7 @@ class _ModernResourceCard extends StatelessWidget {
                 }
 
                 return ListTile(
-                  leading: _getIcon(fileName),
+                  leading: getIcon(fileName),
                   title: Text(fileName),
                   trailing: IconButton(
                     icon: const Icon(Icons.download_rounded),
@@ -220,7 +219,7 @@ class _ModernResourceCard extends StatelessWidget {
                     }
                   },
                 );
-              }).toList(),
+              }),
             ],
           ],
         ),
@@ -274,7 +273,7 @@ class _ModernResourceCard extends StatelessWidget {
 class FilePreviewScreen extends StatefulWidget {
   final String fileUrl;
 
-  const FilePreviewScreen({Key? key, required this.fileUrl}) : super(key: key);
+  const FilePreviewScreen({super.key, required this.fileUrl});
 
   @override
   State<FilePreviewScreen> createState() => _FilePreviewScreenState();

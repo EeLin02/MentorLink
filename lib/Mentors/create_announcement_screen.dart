@@ -19,7 +19,7 @@ class CreateAnnouncementScreen extends StatefulWidget {
 
 
   const CreateAnnouncementScreen({
-    Key? key,
+    super.key,
     required this.subjectName,
     required this.className,
     this.announcementId,
@@ -28,7 +28,7 @@ class CreateAnnouncementScreen extends StatefulWidget {
     this.files,
     this.externalLinks,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   State<CreateAnnouncementScreen> createState() => _CreateAnnouncementScreenState();
@@ -39,7 +39,7 @@ class _CreateAnnouncementScreenState extends State<CreateAnnouncementScreen> {
   final TextEditingController _descriptionController = TextEditingController();
   final TextEditingController _linkController = TextEditingController();
 
-  List<PlatformFile> _selectedFiles = [];
+  final List<PlatformFile> _selectedFiles = [];
   List<String> _existingFileUrls = [];
   List<String> _externalLinks = [];
   final TextEditingController _linkInputController = TextEditingController();

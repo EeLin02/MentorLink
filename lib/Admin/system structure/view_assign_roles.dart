@@ -34,6 +34,8 @@ class AssignmentEntry {
 }
 
 class AssignmentsDashboardScreen extends StatefulWidget {
+  const AssignmentsDashboardScreen({super.key});
+
   @override
   _AssignmentsDashboardScreenState createState() => _AssignmentsDashboardScreenState();
 }
@@ -113,7 +115,7 @@ class _AssignmentsDashboardScreenState extends State<AssignmentsDashboardScreen>
     final enrollmentsSnapshot = await _firestore.collection(
         'subjectEnrollments').get();
     for (var doc in enrollmentsSnapshot.docs) {
-      final data = doc.data() as Map<String, dynamic>;
+      final data = doc.data();
       final departmentId = data['departmentId'];
       final subjectId = data['subjectId'];
       final studentId = data['studentId'];
@@ -140,7 +142,7 @@ class _AssignmentsDashboardScreenState extends State<AssignmentsDashboardScreen>
 
     final mentorsSnapshot = await _firestore.collection('subjectMentors').get();
     for (var doc in mentorsSnapshot.docs) {
-      final data = doc.data() as Map<String, dynamic>;
+      final data = doc.data();
       final departmentId = data['departmentId'];
       final subjectId = data['subjectId'];
       final mentorId = data['mentorId'];

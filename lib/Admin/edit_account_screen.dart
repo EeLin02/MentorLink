@@ -10,7 +10,7 @@ import 'image_preview_screen.dart';
 class EditAccountScreen extends StatefulWidget {
   final Map<String, dynamic> userData;
 
-  const EditAccountScreen({required this.userData});
+  const EditAccountScreen({super.key, required this.userData});
 
   @override
   _EditAccountScreenState createState() => _EditAccountScreenState();
@@ -173,29 +173,29 @@ class _EditAccountScreenState extends State<EditAccountScreen> {
               _buildUploadedFilePreview(),
               ElevatedButton(
                 onPressed: _pickAndUploadFile,
-                child: Text('Upload File (Image or PDF)'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepPurple,
                   foregroundColor: Colors.white,
                 ),
+                child: Text('Upload File (Image or PDF)'),
               ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _saveChanges,
-                child: Text('Save Changes'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepPurple,
                   foregroundColor: Colors.white,
                 ),
+                child: Text('Save Changes'),
               ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () => _toggleAccountStatus(!isDisabled),
-                child: Text(isDisabled ? 'Enable Account' : 'Disable Account'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: isDisabled ? Colors.green : Colors.red,
                   foregroundColor: Colors.white,
                 ),
+                child: Text(isDisabled ? 'Enable Account' : 'Disable Account'),
               ),
             ],
           ),

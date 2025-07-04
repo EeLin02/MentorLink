@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ManageStudentsMultiAssignScreen extends StatefulWidget {
+  const ManageStudentsMultiAssignScreen({super.key});
+
   @override
   _ManageStudentsMultiAssignScreenState createState() =>
       _ManageStudentsMultiAssignScreenState();

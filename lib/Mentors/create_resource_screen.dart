@@ -18,7 +18,7 @@ class CreateResourceScreen extends StatefulWidget {
   final String? description;
 
   const CreateResourceScreen({
-    Key? key,
+    super.key,
     required this.subjectName,
     required this.className,
     this.resourceId,
@@ -27,7 +27,7 @@ class CreateResourceScreen extends StatefulWidget {
     this.links,
     this.color,
     this.description,
-  }) : super(key: key);
+  });
 
   @override
   State<CreateResourceScreen> createState() => _CreateResourceScreenState();
@@ -41,7 +41,7 @@ class _CreateResourceScreenState extends State<CreateResourceScreen> {
 
 
   List<String> _externalLinks = [];
-  List<PlatformFile> _selectedFiles = [];
+  final List<PlatformFile> _selectedFiles = [];
   bool _isUploading = false;
   List<String> _uploadedFileUrls = [];
 

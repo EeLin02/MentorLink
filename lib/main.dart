@@ -19,6 +19,11 @@ import 'Mentors/create_announcement_screen.dart';
 import 'Mentors/create_resource_screen.dart';
 import 'Mentors/preview_announcement_screen.dart';
 
+import 'Student/student_announcement_screen.dart';
+import 'Student/chat_to_mentor.dart';
+import 'Student/student_private_chat_screen.dart';
+import 'Student/student_share_resource_screen.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,7 +52,7 @@ class MyApp extends StatelessWidget {
     final themeNotifier = Provider.of<ThemeNotifier>(context);
 
     return MaterialApp(
-      title: 'Edu Mentor',
+      title: 'Mentor Link',
       debugShowCheckedModeBanner: false,
       theme: themeNotifier.isDarkMode ? ThemeData.dark() : ThemeData.light(),
 
@@ -61,6 +66,7 @@ class MyApp extends StatelessWidget {
 
         //  New routes with arguments handled using ModalRoute
         '/announcement': (context) => const AnnouncementScreen(),
+        '/studentAnnouncement': (context) => const StudentAnnouncementScreen(),
 
 
         '/createAnnouncement': (context) {
@@ -105,7 +111,27 @@ class MyApp extends StatelessWidget {
           );
         },
 
+        '/privateChat': (context) {
+          final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+          return PrivateChatScreen(
+            mentorId: args['mentorId'],
+            mentorName: args['mentorName'],
+          );
+        },
 
+        '/studentClassChat': (context) {
+          final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+          return StudentClassChatScreen(
+            subjectId: args['subjectId'],
+            classId: args['classId'],
+            mentorId: args['mentorId'],
+            subjectName: args['subjectName'],
+            className: args['className'],
+            color: args['color'],
+          );
+        },
+
+        '/studentShareResources': (context) => const StudentResourceScreen(),
         '/shareResources': (context) => const ResourceScreen(),
 
         '/createResource': (context) {

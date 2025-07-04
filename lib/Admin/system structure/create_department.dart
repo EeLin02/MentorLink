@@ -4,6 +4,8 @@ import 'manage_mentors_screen.dart';
 import 'manage_students_screen.dart';
 
 class ManageDepartmentsScreen extends StatefulWidget {
+  const ManageDepartmentsScreen({super.key});
+
   @override
   _ManageDepartmentsScreenState createState() => _ManageDepartmentsScreenState();
 }

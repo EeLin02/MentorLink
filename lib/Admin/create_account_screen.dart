@@ -8,6 +8,8 @@ import 'package:file_picker/file_picker.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class CreateAccountScreen extends StatefulWidget {
+  const CreateAccountScreen({super.key});
+
   @override
   _CreateAccountScreenState createState() => _CreateAccountScreenState();
 }

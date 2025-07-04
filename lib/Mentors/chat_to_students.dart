@@ -12,14 +12,14 @@ class ClassChatScreen extends StatefulWidget {
   final String mentorId;
 
   const ClassChatScreen({
-    Key? key,
+    super.key,
     required this.subjectId,
     required this.classId,
     required this.subjectName,
     required this.className,
     required this.mentorId,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   State<ClassChatScreen> createState() => _ClassChatScreenState();

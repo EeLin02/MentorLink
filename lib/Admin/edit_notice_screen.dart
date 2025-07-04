@@ -13,7 +13,7 @@ class EditNoticeScreen extends StatefulWidget {
   final List<String> initialFileUrls;
   final List<String> initialFileNames;
 
-  EditNoticeScreen({
+  const EditNoticeScreen({super.key, 
     required this.noticeId,
     required this.initialTitle,
     required this.initialDescription,
@@ -31,10 +31,10 @@ class _EditNoticeScreenState extends State<EditNoticeScreen> {
   late TextEditingController _descriptionController;
 
   // New files selected from device
-  List<File> _newFiles = [];
-  List<String?> _newFileNames = [];
-  List<String?> _newFileMimes = [];
-  List<VideoPlayerController?> _newVideoControllers = [];
+  final List<File> _newFiles = [];
+  final List<String?> _newFileNames = [];
+  final List<String?> _newFileMimes = [];
+  final List<VideoPlayerController?> _newVideoControllers = [];
 
   // Existing files from Firestore (URLs + names)
   late List<String> _existingFileUrls;
@@ -391,9 +391,9 @@ class _EditNoticeScreenState extends State<EditNoticeScreen> {
                               child: Text('Cancel'),
                             ),
                             TextButton(
-                              onPressed: () => Navigator.pop(context, true), // Confirm discard
+                              onPressed: () => Navigator.pop(context, true),
+                              style: TextButton.styleFrom(foregroundColor: Colors.red), // Confirm discard
                               child: Text('Discard'),
-                              style: TextButton.styleFrom(foregroundColor: Colors.red),
                             ),
                           ],
                         ),
@@ -403,21 +403,21 @@ class _EditNoticeScreenState extends State<EditNoticeScreen> {
                         Navigator.pop(context); // Close the screen
                       }
                     },
-                    child: Text('Cancel'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey,
                       foregroundColor: Colors.white,
                       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                     ),
+                    child: Text('Cancel'),
                   ),
                   ElevatedButton(
                     onPressed: _saveChanges,
-                    child: Text('Save Changes'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.deepPurple,
                       foregroundColor: Colors.white,
                       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                     ),
+                    child: Text('Save Changes'),
                   ),
                 ],
               ),

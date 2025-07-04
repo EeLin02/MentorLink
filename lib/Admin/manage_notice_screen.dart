@@ -6,6 +6,8 @@ import 'edit_notice_screen.dart';  // Import the new edit screen
 import 'comments_view.dart';
 
 class ManageNoticesScreen extends StatefulWidget {
+  const ManageNoticesScreen({super.key});
+
   @override
   _ManageNoticesScreenState createState() => _ManageNoticesScreenState();
 }
@@ -341,7 +343,7 @@ class _ManageNoticesScreenState extends State<ManageNoticesScreen> {
 class VideoPreview extends StatefulWidget {
   final String url;
 
-  VideoPreview({required this.url});
+  const VideoPreview({super.key, required this.url});
 
   @override
   _VideoPreviewState createState() => _VideoPreviewState();

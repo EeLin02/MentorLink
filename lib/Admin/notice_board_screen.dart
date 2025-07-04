@@ -7,6 +7,8 @@ import 'package:mime/mime.dart';
 import 'package:video_player/video_player.dart';
 
 class NoticeBoardScreen extends StatefulWidget {
+  const NoticeBoardScreen({super.key});
+
   @override
   _NoticeBoardScreenState createState() => _NoticeBoardScreenState();
 }
@@ -16,10 +18,10 @@ class _NoticeBoardScreenState extends State<NoticeBoardScreen> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
 
-  List<File> _selectedFiles = [];
-  List<String?> _fileNames = [];
-  List<String?> _fileMimes = [];
-  List<VideoPlayerController?> _videoControllers = [];
+  final List<File> _selectedFiles = [];
+  final List<String?> _fileNames = [];
+  final List<String?> _fileMimes = [];
+  final List<VideoPlayerController?> _videoControllers = [];
 
   Future<void> _pickFiles() async {
     final result = await FilePicker.platform.pickFiles(
@@ -94,7 +96,9 @@ class _NoticeBoardScreenState extends State<NoticeBoardScreen> {
   void _resetForm() {
     _titleController.clear();
     _descriptionController.clear();
-    _videoControllers.forEach((controller) => controller?.dispose());
+    for (var controller in _videoControllers) {
+      controller?.dispose();
+    }
     setState(() {
       _selectedFiles.clear();
       _fileNames.clear();
@@ -107,7 +111,9 @@ class _NoticeBoardScreenState extends State<NoticeBoardScreen> {
   void dispose() {
     _titleController.dispose();
     _descriptionController.dispose();
-    _videoControllers.forEach((controller) => controller?.dispose());
+    for (var controller in _videoControllers) {
+      controller?.dispose();
+    }
     super.dispose();
   }
 
@@ -224,12 +230,12 @@ class _NoticeBoardScreenState extends State<NoticeBoardScreen> {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _postNotice,
-                child: Text('Post Notice'),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.deepPurple,
                   foregroundColor: Colors.white,
                   padding: EdgeInsets.symmetric(vertical: 15),
                 ),
+                child: Text('Post Notice'),
               ),
             ],
           ),

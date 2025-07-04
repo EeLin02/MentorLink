@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class MentorCard extends StatelessWidget {
   final String mentorId;
 
-  const MentorCard({required this.mentorId, Key? key}) : super(key: key);
+  const MentorCard({required this.mentorId, super.key});
 
   @override
   Widget build(BuildContext context) {

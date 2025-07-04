@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class ResourceScreen extends StatefulWidget {
-  const ResourceScreen({Key? key}) : super(key: key);
+  const ResourceScreen({super.key});
 
   @override
   State<ResourceScreen> createState() => _ResourceScreenState();
@@ -174,7 +174,7 @@ class _ResourceScreenState extends State<ResourceScreen> {
                         },
                       ),
                     );
-                  }).toList(),
+                  }),
                   const SizedBox(height: 16),
                 ],
               );
@@ -196,8 +196,8 @@ class _ResourceScreenState extends State<ResourceScreen> {
             },
           );
         },
-        child: Icon(Icons.add),
         tooltip: 'Add new resource',
+        child: Icon(Icons.add),
       ),
     );
   }

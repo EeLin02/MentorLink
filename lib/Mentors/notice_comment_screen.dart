@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class NoticeCommentScreen extends StatefulWidget {
   final String noticeId;
-  NoticeCommentScreen({required this.noticeId});
+  const NoticeCommentScreen({super.key, required this.noticeId});
 
   @override
   _NoticeCommentScreenState createState() => _NoticeCommentScreenState();
@@ -14,10 +14,10 @@ class _NoticeCommentScreenState extends State<NoticeCommentScreen> {
   final TextEditingController _commentController = TextEditingController();
   final currentUser = FirebaseAuth.instance.currentUser;
 
-  Map<String, String> _mentorNames = {};
-  Map<String, bool> _showReplyField = {};
-  Map<String, TextEditingController> _replyControllers = {};
-  Map<String, bool> _showAllReplies = {};
+  final Map<String, String> _mentorNames = {};
+  final Map<String, bool> _showReplyField = {};
+  final Map<String, TextEditingController> _replyControllers = {};
+  final Map<String, bool> _showAllReplies = {};
 
   Future<String> _getUserName(String uid) async {
     if (_mentorNames.containsKey(uid)) {
