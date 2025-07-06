@@ -24,7 +24,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       _showMessage("Only mentor and student emails can reset passwords.");
       return;
     }
-
     try {
       await _auth.sendPasswordResetEmail(email: email);
       _showMessage("Password reset link has been sent to your email.");

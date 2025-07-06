@@ -58,7 +58,7 @@ class _StudentCardScreenState extends State<StudentCardScreen> {
           padding: const EdgeInsets.all(16),
           child: Container(
             width: 350,
-            height: 500, // 👈 拉长卡片高度
+            height: 500,
             child: Card(
               color: Colors.blue[50],
               shape: RoundedRectangleBorder(

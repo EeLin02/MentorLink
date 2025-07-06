@@ -60,14 +60,7 @@ class _StudentSubjectClassDetailsScreenState
               .get();
 
           if (classDoc.exists) {
-            print('[DEBUG] Found classDoc, fetching mentor info...');
             String fetchedMentorId = '';
-
-            // 🔍 Debug: 输出当前正在查找的 departmentId/subjectId/classId
-            print('[DEBUG] Querying subjectMentors with:');
-            print('  departmentId = ${dept.id}');
-            print('  subjectId = ${widget.subjectId}');
-            print('  classId = ${widget.classId}');
 
             final mentorQuery = await FirebaseFirestore.instance
                 .collection('subjectMentors')
@@ -222,11 +215,28 @@ class _StudentSubjectClassDetailsScreenState
                 });
               },
             ),
+
+            const SizedBox(height: 14),
+            _actionButton(
+              icon: Icons.sticky_note_2_outlined,
+              label: 'Notes',
+              textColor: textColor,
+              onTap: () {
+                Navigator.pushNamed(context, '/studentNotes', arguments: {
+                  'subjectName': subjectName,
+                  'className': className,
+                  'color': color,
+                });
+              },
+            ),
+
           ],
         ),
       ),
     );
   }
+
+
 
   Widget _infoCard(Color textColor) {
     final Color valueColor = textColor.withOpacity(0.7);
